@@ -1,0 +1,27 @@
+import { useState } from "react";
+import { HiOutlineMenuAlt4 } from "react-icons/hi";
+import {FaRegTimesCircle} from "react-icons/fa"
+
+export default function Navbar(){
+    const[click,setClick]= useState(false)
+    const handleClick=()=> setClick(!click)
+    return (
+        <div>
+           <div className='navbar'>
+            <div className='container'>
+                <h1><span><img  className="logo" src='../Images/CasaLogo.png' alt=''></img> </span></h1>
+                <ul className={click ? 'nav-menu' : 'working'}>
+                    <li ><a href='#'>Accueil</a></li>
+                    <li><a href='#'>Annonces</a></li>
+                    <li><a href='#'>Contactez-nous</a></li>
+                </ul>
+                <a href='#'><img  className= 'imbtn'  src='../Images/MonCompte.png' alt=''></img></a>
+                <div className='icone-menu'  onClick={handleClick}> 
+                {click ? (<HiOutlineMenuAlt4 className="icon"/>): (<FaRegTimesCircle className="icon"/>)} 
+    
+                </div>
+            </div>
+            </div> 
+        </div>
+    );
+}
